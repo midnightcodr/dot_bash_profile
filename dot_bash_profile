@@ -8,11 +8,6 @@ fi
 c() {
 	ssh $2@$1
 }
-
-headless() {
-	VBoxHeadless -s $1&
-}
-
 comm_tw() {
         [ $# -lt 2 ] && return
         osascript -e "
@@ -25,4 +20,8 @@ newt() {
 }
 neww() {
 	comm_tw n "$1"
+}
+headless() {
+        [ $# -lt 2 ] && echo "$0 vm_name" && return
+        VBoxHeadless -startvm $1&
 }
