@@ -22,6 +22,6 @@ neww() {
 	comm_tw n "$1"
 }
 headless() {
-        [ $# -lt 2 ] && echo "$0 vm_name" && return
+        [ $# -lt 1 ] && echo "Usage: $FUNCNAME vm_name" && return
         VBoxHeadless -startvm $1&
 }
